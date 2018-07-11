@@ -17,12 +17,13 @@ app.post('/todos', (req, res) => {
         text: req.body.text
     });
     
+ 
     todo.save().then((doc) => {
         res.send(doc);
     }, (e) => {
         
         res.status(400).send(e);
-    });
+    }).catch((e) => done(e));
 });
 
 app.get('/todos', (req, res) => {
@@ -49,7 +50,6 @@ app.get('/todos/:id', (req, res) => {
     }).catch((e) => {
         res.status(400).send();
     });
-    
     
     
 });
