@@ -6,7 +6,7 @@ let db = {
     localhost: 'mongodb://localhost:27017/TodoApp',
     mlab: 'mongodb://AndyShen:c3b4ucme@ds233531.mlab.com:33531/todo-app-database'
 };
-mongoose.connect(db.localhost || db.mlab);
+mongoose.connect(db.mlab || db.localhost);
 
 module.exports = {
     mongoose
