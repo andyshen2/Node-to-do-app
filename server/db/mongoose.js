@@ -11,3 +11,4 @@ mongoose.connect(db.mlab || db.localhost);
 module.exports = {
     mongoose
 };
+//, { useNewUrlParser: true }
