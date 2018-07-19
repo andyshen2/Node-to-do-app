@@ -30,6 +30,7 @@ describe('POST /todos', () => {
        
        request(app)
         .post('/todos')
+        .set('x-auth', user[0].tokens[0])
         .send({text})
         .expect(200)
         .expect((res) => {
@@ -52,6 +53,7 @@ describe('POST /todos', () => {
     it('Should not create to do with invalid body data', (done) => {
       request(app)
         .post('/todos')
+        .set('x-auth', user[0].tokens[0])
         .send({})
         .expect(400)
        .end((err, res) => {
@@ -72,9 +74,10 @@ describe('GET /todos', () => {
     it('Should get all todos', (done) => {
        request(app)
         .get('/todos')
+        .set('x-auth', user[0].tokens[0])
         .expect(200)
         .expect((res) => {
-           expect(res.body.todos.length).toBe(2);
+           expect(res.body.todos.length).toBe(1);
        })
         .end(done);
     });
@@ -82,13 +85,11 @@ describe('GET /todos', () => {
 
 /*
 describe('GET /todos/:id', () => {
-    it('should return todo doc', (done) => {
+    it('should not return todo doc created by other user', (done) => {
         request(app)
-            .get(`/todos/${todos[0]._id.toHexString()}`)
-            .expect(200)
-            .expect((res) => {
-                expect(res.body.todo.text).toBe(todos[0].text);
-            })
+            .get(`/todos/${todos[1]._id.toHexString()}`)
+            .set('x-auth', user[0].tokens[0])
+            .expect(404)
             .end(done);
     });
     
@@ -97,6 +98,7 @@ describe('GET /todos/:id', () => {
         
         request(app)
         .get(`/todos/${hexId}`)
+        .set('x-auth', user[0].tokens[0])
         .expect(404)
         .end(done);
     });
@@ -116,6 +118,7 @@ describe('DELETE /todos/:id' , () => {
         
         request(app)
             .delete(`/todos/${hexId}`)
+            .set('x-auth', user[1].tokens[0])
             .expect(200)
             .expect((res) => {
                 expect(res.body.todo._id).toBe(hexId);
