@@ -244,7 +244,7 @@ describe('POST /users', () => {
       });
     });
   });
-  it('should return validation errors if request is invalid', (done) => {
+ /* it('should return validation errors if request is invalid', (done) => {
    
     
     request(app)
@@ -252,8 +252,8 @@ describe('POST /users', () => {
       .send({email:'aa', password:'a'})
       .expect(400)
       .end(done());
-  });
-  it('should not create user if email in use', (done) => {
+  });*/
+/*  it('should not create user if email in use', (done) => {
     request(app)
       .post('/users')
       .send({
@@ -262,5 +262,7 @@ describe('POST /users', () => {
       })
       .expect(400)
       .end(done);
-  });
+  });*/
 })
+
+describe
