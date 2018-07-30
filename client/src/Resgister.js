@@ -1,4 +1,7 @@
 import React from 'react';
+import { BrowserRouter as Router, Link, Redirect} from 'react-router-dom';
+import Route from 'react-router-dom/Route';
+import Loggedin from './Loggedin.js';
 
 export default class Resgister extends React.Component {
 
@@ -9,6 +12,7 @@ export default class Resgister extends React.Component {
   state = {
     email: '',
     password:'',
+    loggedIn: false,
   }
 
   handleSubmit(e) {
@@ -28,7 +32,8 @@ export default class Resgister extends React.Component {
   }).then((res) =>{
       if(res.ok){
         localStorage.setItem("token", res.headers.get("x-auth"));
-        alert("token is " + localStorage.getItem("token"));
+        //alert("token is " + localStorage.getItem("token"));
+        this.setState({loggedIn: true})
       //  alert(res.headers.get("x-auth"))
       }
 
@@ -49,8 +54,15 @@ change = e => {
 Submit = (e) => {
   e.preventDefault();
   this.props.onSubmit(this.state);
+
 };
   render() {
+    if(this.state.loggedIn === true){
+    <Router>
+       <Redirect to='/loggedIn' component={Loggedin}/>
+    </Router>
+      //alert("you are logged in");
+    }
     return (
 
       <form onSubmit={this.handleSubmit}>
