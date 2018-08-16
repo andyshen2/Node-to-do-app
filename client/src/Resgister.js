@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Link, Redirect} from 'react-router-dom';
 import Route from 'react-router-dom/Route';
 import Loggedin from './Loggedin.js';
+//import Loggedin from './Loggedin.js';
 
 export default class Resgister extends React.Component {
 
@@ -55,12 +56,15 @@ Submit = (e) => {
   e.preventDefault();
   this.props.onSubmit(this.state);
 
+
 };
   render() {
+  //  const { loggedIn } = this.state.loggedIn;
     if(this.state.loggedIn === true){
-    <Router>
-       <Redirect to='/loggedIn' component={Loggedin}/>
-    </Router>
+  // <Router>
+      return <Redirect to="/loggedin"/>
+  //  </Router>
+    alert("Logged in");
       //alert("you are logged in");
     }
     return (

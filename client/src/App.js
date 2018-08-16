@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route } from "react-router-dom";
 import Register from './Resgister.js';
-
+import Loggedin from './Loggedin.js';
 class App extends Component {
 
-  state = {
-      fields: {},
-  };
-
-
-
-  Submit = fields => {
-    this.setState({fields});
-  };
 
   render() {
     return (
       <div className="App">
-        <Register onSubmit={fields => this.Submit(fields)}/>
+        <BrowserRouter>
+          <div>
 
-        <p>{JSON.stringify(this.state.fields, null, 2)}</p>
+            <Route exact path="/Register" component={Register}/>
+            <Route exact path="/loggedin" component={Loggedin}/>
+          </div>
+        </BrowserRouter>
+      
+
+
       </div>
     );
   }
