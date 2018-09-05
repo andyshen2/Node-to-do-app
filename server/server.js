@@ -34,7 +34,7 @@ app.post('/todos', authenticate, (req, res) => {
     }).catch((e) => done(e));
 });
 
-app.get('/todos', authenticate, (req, res) => {
+app.get('/todos/get', authenticate, (req, res) => {
     Todo.find({
       _creator: req.user._id
     }).then((todos) => {
