@@ -73,7 +73,7 @@ class Login extends React.Component {
     if (this.state.loggedIn === true) {
       return (
         <Router>
-          <Redirect to={{ pathname: "/Edit", state: { loggedIn: true } }} />
+          <Redirect to="/Edit" />
         </Router>
       );
     }
@@ -111,4 +111,4 @@ class Login extends React.Component {
   }
 }
 
-export default withRouter(Login);
+export default Login;

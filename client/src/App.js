@@ -35,7 +35,6 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <div>
-            <Redirect from="/" to="Login" />
             <Switch>
               <Route exact path="/Register" component={Register} />
               <Route exact path="/Login" component={Login} />
