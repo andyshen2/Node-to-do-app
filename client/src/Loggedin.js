@@ -1,14 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 //import logo from './logo.svg';
 //import './App.css';
 
-
 class Loggedin extends Component {
-
-
-
-
-
   render() {
     return (
       <div>

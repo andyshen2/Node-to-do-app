@@ -25,7 +25,7 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:3000/users/login", {
+    fetch("https://dashboard.heroku.com/apps/whispering-journey-50918/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
