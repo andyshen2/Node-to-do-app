@@ -25,7 +25,7 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    fetch("/users/login", {
+    fetch("https://whispering-journey-50918.herokuapp.com/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -73,7 +73,7 @@ class Login extends React.Component {
     if (this.state.loggedIn === true) {
       return (
         <Router>
-          <Redirect to="/Edit" />
+          return <Redirect to="/Edit" />
         </Router>
       );
     }
