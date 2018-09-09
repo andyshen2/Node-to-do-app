@@ -13,7 +13,8 @@ var { authenticate } = require("./middleware/authenticate");
 var app = express();
 
 const port = process.env.PORT || 5000;
-app.use("/Login", express.static("client/build"));
+app.use(express.static(path.join(__dirname, "client/build")));
+//app.use("/Login", express.static("client/build"));
 
 app.use(bodyParser.json());
 
