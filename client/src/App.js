@@ -26,11 +26,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 class App extends Component {
   render() {
-    if (!token) {
-      <BrowserRouter>
-        return <Redirect to="/Login" />
-      </BrowserRouter>;
-    }
     return (
       <div className="App">
         <BrowserRouter>
