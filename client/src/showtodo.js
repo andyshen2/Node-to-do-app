@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Link, Redirect } from "react-router-dom";
 import Route from "react-router-dom/Route";
 import Login from "./login.js";
+import "./todo.css";
 //import Loggedin from './Loggedin.js';
 
 class TextField extends React.Component {
@@ -277,7 +278,7 @@ export default class Edit extends React.Component {
       content = "";
     }*/
     return (
-      <div>
+      <div className="todo">
         <button onClick={this.logout}>logout</button>
 
         <form onSubmit={this.handleSubmit}>
